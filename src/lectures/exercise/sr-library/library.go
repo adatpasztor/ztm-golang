@@ -23,4 +23,6 @@ import "fmt"
 
 func main() {
 
+	fmt.Println("PSX->ok")
+
 }

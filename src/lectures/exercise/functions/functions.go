@@ -19,6 +19,29 @@ package main
 
 import "fmt"
 
+func greetPerson(name string) string {
+	fmt.Println("------------------------------------------")
+	fmt.Println("Hi, ", name)
+	ret := "Hi, " + name
+	return ret
+}
+
+func addThree(a, b, c int) int {
+	return a + b + c
+}
+
+func getTwo() (int, int) {
+	return 13, 37
+}
+
 func main() {
+	greetPerson("PSX")
+	fmt.Println("Az uzenet-> ", greetPerson("psx2"))
+
+	fmt.Println("addThree-> ", addThree(1, 2, 333))
+	a, b := getTwo()
+	fmt.Println("a, b ->  ", a, b)
+	// ez nem megy
+	//fmt.Println("a, b ->  ", getTwo())
 
 }

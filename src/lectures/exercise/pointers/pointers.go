@@ -18,6 +18,49 @@ package main
 
 import "fmt"
 
+type Status bool
+
+const (
+	active   Status = true
+	inactive Status = false
+)
+
+type Tag struct {
+	name   string
+	status Status
+}
+
+func setStatus(tag *Tag, status Status) {
+	tag.status = status
+}
+
+func checkout(tag *[]Tag) {
+	for _, t := range *tag {
+		t.status = inactive
+	}
+}
+
+func displayTags(tag *[]Tag) {
+	for _, t := range *tag {
+		fmt.Println("Tag->", t.name, " status->", t.status)
+	}
+
+}
+
 func main() {
+	tags := []Tag{
+		{"egy", active},
+		{"ketto", active},
+		{"harom", active},
+		{"negy", active},
+	}
+
+	displayTags(&tags)
+
+	setStatus(&tags[1], inactive)
+
+	displayTags(&tags)
+	tags[2].name = "elso"
+	displayTags(&tags)
 
 }

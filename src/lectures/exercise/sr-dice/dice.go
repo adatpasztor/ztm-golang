@@ -23,7 +23,51 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+func roll(diceNum int, diceSide int) int {
+	ret := rand.Intn(diceSide) + 1
+	fmt.Println(diceNum, " kocka-> ", ret)
+	return ret
+}
 
 func main() {
+	const rollNums = 2
+	const diceNumber = 2
+	const diceSide = 6
+
+	//rand.Seed(45)
+	rand.Seed(time.Now().UnixNano())
+
+	var rollSum int
+
+	fmt.Println(rollNums, "dobas", diceNumber, "db", diceSide, "oldalu kockaval")
+
+	rollSum = 0
+	for r := 1; r <= rollNums; r++ {
+		for d := 1; d <= diceNumber; d++ {
+			rollSum += roll(d, diceSide)
+		}
+	}
+	//fmt.Println("rollSum->", rollSum)
+	switch {
+	case rollSum == 2 && rollNums == 2:
+		fmt.Print(rollSum)
+		fmt.Println(" Snake eyes !!!")
+	case rollSum == 7:
+		fmt.Print(rollSum)
+		fmt.Println(" Lucky 7 !!!")
+	case rollSum%2 == 0:
+		fmt.Print(rollSum)
+		fmt.Println(" Even !!!")
+	default:
+		fmt.Print(rollSum)
+		fmt.Println(" Odd !!!")
+
+	}
+	//	fmt.Println("PSX-> ok")
 }

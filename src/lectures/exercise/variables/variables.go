@@ -24,5 +24,30 @@ package main
 
 import "fmt"
 
+func t1(a, b int) int {
+	return a + b
+}
+
 func main() {
+	var color = "green"
+	var byear, age uint = 1968, 33
+	var (
+		first_initial string = "elso"
+		last_initial  string = "utolso"
+	)
+	var ageInDays uint
+	ageInDays = age * 365
+
+	fmt.Println("color->", color)
+	fmt.Println("byear->", byear, " age->", age)
+	fmt.Println("first_initial->", first_initial)
+	fmt.Println("last_initial->", last_initial)
+	fmt.Println("ageInDays->", ageInDays)
+	fmt.Println("color->", color)
+	fmt.Println("color->", color)
+
+	var result int16 = int16(t1(111, 222))
+
+	fmt.Println("result->", result)
+
 }

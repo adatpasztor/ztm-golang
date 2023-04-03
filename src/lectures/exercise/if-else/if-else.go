@@ -46,8 +46,25 @@ func accessDenied() {
 }
 
 func main() {
-	// The day and role. Change these to check your work.
-	today, role := Tuesday, Guest
 
-	accessGranted()
+	// The day and role. Change these to check your work.
+	today, role := Monday, Member
+
+	if role == Admin || role == Manager {
+		accessGranted()
+		fmt.Println("Admin")
+	} else if (today == Saturday || today == Sunday) && role == Contractor {
+		accessGranted()
+		fmt.Println("Contractor")
+	} else if (today != Saturday && today != Sunday) && role == Member {
+		accessGranted()
+		fmt.Println("Member")
+	} else if (today == Monday || today == Wednesday || today == Friday) && role == Guest {
+		accessGranted()
+		fmt.Println("Guest")
+	} else {
+		accessDenied()
+		fmt.Println("other")
+	}
+
 }

@@ -19,6 +19,7 @@ import "fmt"
 
 type Distance int32
 type Velocity float64
+type PSX string
 
 // The `clamp` function returns a value that has been "clamped"
 // within a specific range of numbers. The `min` value is the
@@ -31,6 +32,19 @@ type Velocity float64
 /*
 func clamp(value, min, max) clamped_value {}
 */
+
+func clamp[K uint | float32 | int8 | uint32 | Distance | Velocity](value K, min K, max K) K {
+	if value <= max {
+		if value >= min {
+			return value
+		} else {
+			return min
+		}
+	} else {
+		return max
+	}
+
+}
 
 func testClampInt8() {
 	var (
